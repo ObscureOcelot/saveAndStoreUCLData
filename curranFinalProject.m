@@ -8,6 +8,9 @@ function curranFinalProject
 %  structural and material property data taken from ultrasonic imaging
 %  of the ulnar collateral ligament.
 
+%  THIS IS THE MAIN FUCNTION FOR MY FINAL PROJECT
+%  RUN ME FIRST
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                                   %
 %                                %%% PATRICK %%%                                    %
@@ -21,7 +24,7 @@ function curranFinalProject
 %  Not to patronize, but to show I thought about this, make sure there aren't       %
 %  duplicate .mat files or csv files before running it with the populated data.     %
 %                                                                                   %
-%  also, I am aware of the bug that there is a modal questdlg after the graphs      %
+%  Also, I am aware of the bug that there is a modal questdlg after the graphs      %
 %  appear, meaning you can not continue going through the plots before choosing     %
 %  whether or not to process data from another image.                               %
 %                                                                                   %
@@ -150,7 +153,7 @@ processedData = importCurranSampleData('curranFinalProjectProcessedData.csv','cu
 
 
 %% Ask user if they would like to use a sample collection or enter new data
-customDataAnswer = questdlg('Would you to process existing data or enter a custom set of data?','Custom Data?','Custom Data','Sample Data','Sample Data');
+customDataAnswer = questdlg('Would you like to process existing data or enter a custom set of data?','Custom Data?','Custom Data','Sample Data','Sample Data');
 
 % User inputs custom data set
 if strcmp(customDataAnswer,'Custom Data')
@@ -247,9 +250,10 @@ end
 % Load proper mat file 
 indDataMatFile = load(indDataMatFileName);
 
+%%
 % Create string to match name of specific field within mat file
 subjectField = strcat(studyName(5),lower(studyName(6:8)),subjectNumName);
-
+%%
 % Place Measurements into field in proper row,cols
 indDataMatFile.(char({subjectField}))(indDataRow,indDataCols) = uclMeasurements;
 
